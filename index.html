@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Inspect All Keyboard / Composition Events </title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <![endif]-->
+  <!--[if gte IE 9]><!-->
+    <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.slim.min.js"></script>
+  <!--<![endif]-->
+  <script src="main.js"></script>
+<style>
+</style>
+</head>
+<body>
+
+<h1>
+
+
+  <a class="header-logo-invertocat" href="https://github.com/owebio/inspect-keyboard-composition-events">
+  <svg aria-hidden="true" height="32" version="1.1" viewBox="0 0 16 16" width="32"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></a>
+
+  INSPECT ALL KEYBOARD/COMPOSITION EVENTS <br>
+  <span id="desc">2017-01-18</span>
+   
+</h1>
+
+
+<input id="keyInput" autofocus>
+
+<div>
+  <div id="ekeydown" class="log">
+    <div class="wrp">
+      <h2>1. KEYDOWN</h2>
+      <div>tid <span id="down-tid">0</span></div>
+      <div>id <span id="down-id">0</span></div>
+      <div>timeStamp <span id="down-timeStamp"></span></div>
+      <div><i>timeLapse</i> <span id="down-timeLapse"></span></div>
+      <div class="not">input.value <span id="down-value"></span></div>
+      <div class="not">input.length <span id="down-length"></span></div>
+      <div class="pp"><b>keyCode <span id="down-keyCode"></span></b></div>
+      <div class="pp not">charCode <span id="down-charCode"></span></div>
+      <div class="pp">which <span id="down-which"></span></div>
+      <div>which <i>(jquery)</i> <span id="down-jwhich"></span></div>
+      <div><i>keyChar*</i> <span id="down-keyChar"></span></div>
+      <div class="not">char <span id="down-char"></span></div>
+      <div class="new">key <span id="down-key"></span></div>
+      <div class="new">code <span id="down-code"></span></div>
+      <div class="new">location <span id="down-location"></span></div>
+      <div class="pp">repeat <span id="down-repeat"></span></div>
+      <div class="pp">metaKey <span id="down-metaKey"></span></div>
+      <div class="pp">ctrlKey <span id="down-ctrlKey"></span></div>
+      <div class="not">shiftKey <span id="down-shiftKey"></span></div>
+      <div class="not">isComposing  <span id="down-isComposing "></span></div>
+      <div class="pd"><input id="dpd" type="checkbox">preventDefault</div>
+      <h2>4. COMPOSITIONSTART</h2>
+      <div>tid <span id="cs-tid">0</span></div>
+      <div>id <span id="cs-id">0</span></div>
+      <div>timeStamp <span id="cs-timeStamp"></span></div>
+      <div><i>timeLapse</i> <span id="cs-timeLapse"></span></div>
+      <div>value <span id="cs-value"></span></div>
+      <div>length <span id="cs-length"></span></div>
+      <div>data <span id="cs-data"></span></div>
+      <div>which <span id="cs-which"></span></div>
+      <div>composed <span id="cs-composed"></span></div>
+    </div>
+  </div>
+  <div id="ekeypress" class="log">
+    <div class="wrp">
+      <h2>2. KEYPRESS</h2>
+      <div>tid <span id="press-tid">0</span></div>
+      <div>id <span id="press-id">0</span></div>
+      <div>timeStamp <span id="press-timeStamp"></span></div>
+      <div><i>timeLapse</i> <span id="press-timeLapse"></span></div>
+      <div class="not">input.value <span id="press-value"></span></div>
+      <div class="not">input.length <span id="press-length"></span></div>
+      <div class="pp">keyCode <span id="press-keyCode"></span></div>
+      <div class="pp"><b>charCode <span id="press-charCode"></span></b></div>
+      <div class="pp">which <span id="press-which"></span></div>
+      <div>which <i>(jquery)</i> <span id="press-jwhich"></span></div>
+      <div><i>keyChar*</i> <span id="press-keyChar"></span></div>
+      <div class="not">char <span id="press-char"></span></div>
+      <div class="new">key <span id="press-key"></span></div>
+      <div class="new">code <span id="press-code"></span></div>
+      <div class="new">location <span id="press-location"></span></div>
+      <div class="pp">repeat <span id="press-repeat"></span></div>
+      <div class="pp">metaKey <span id="press-metaKey"></span></div>
+      <div class="pp">ctrlKey <span id="press-ctrlKey"></span></div>
+      <div class="pp">shiftKey <span id="press-shiftKey"></span></div>
+      <div class="not">isComposing  <span id="press-isComposing "></span></div>
+      <div class="pd"><input id="ppd" type="checkbox">preventDefault</div>
+      <h2>5. COMPOSITIONUPDATE</h2>
+      <div>tid <span id="cu-tid">0</span></div>
+      <div>id <span id="cu-id">0</span></div>
+      <div>timeStamp <span id="cu-timeStamp"></span></div>
+      <div><i>timeLapse</i> <span id="cu-timeLapse"></span></div>
+      <div>value <span id="cu-value"></span></div>
+      <div>length <span id="cu-length"></span></div>
+      <div>data <span id="cu-data"></span></div>
+      <div>which <span id="cu-which"></span></div>
+      <div>composed <span id="cu-composed"></span></div>
+    </div>
+  </div>
+  <div id="ekeyup" class="log">
+    <div class="wrp">
+      <h2>3. KEYUP</h2>
+      <div>tid <span id="up-tid">0</span></div>
+      <div>id <span id="up-id">0</span></div>
+      <div>timeStamp <span id="up-timeStamp"></span></div>
+      <div><i>timeLapse</i> <span id="up-timeLapse"></span></div>
+      <div>input.value <span id="up-value"></span></div>
+      <div>input.length <span id="up-length"></span></div>
+      <div class="pp"><b>keyCode <span id="up-keyCode"></span></b></div>
+      <div class="pp not">charCode <span id="up-charCode"></span></div>
+      <div class="pp">which <span id="up-which"></span></div>
+      <div>which <i>(jquery)</i> <span id="up-jwhich"></span></div>
+      <div><i>keyChar*</i> <span id="up-keyChar"></span></div>
+      <div class="not">char <span id="up-char"></span></div>
+      <div class="new">key <span id="up-key"></span></div>
+      <div class="new">code <span id="up-code"></span></div>
+      <div class="new">location <span id="up-location"></span></div>
+      <div class="pp">repeat <span id="up-repeat"></span></div>
+      <div class="pp">metaKey <span id="up-metaKey"></span></div>
+      <div class="pp">ctrlKey <span id="up-ctrlKey"></span></div>
+      <div class="pp">shiftKey <span id="up-shiftKey"></span></div>
+      <div class="not">isComposing  <span id="up-isComposing "></span></div>
+      <div class="pd"><input id="upd" type="checkbox">preventDefault</div>
+      <h2>6. COMPOSITIONEND</h2>
+      <div>tid <span id="ce-tid">0</span></div>
+      <div>id <span id="ce-id">0</span></div>
+      <div>timeStamp <span id="ce-timeStamp"></span></div>
+      <div><i>timeLapse</i> <span id="ce-timeLapse"></span></div>
+      <div>value <span id="ce-value"></span></div>
+      <div>length <span id="ce-length"></span></div>
+      <div>data <span id="ce-data"></span></div>
+      <div>which <span id="ce-which"></span></div>
+      <div>composed <span id="ce-composed"></span></div>
+    </div>
+  </div>
+  <div id="tb" class="log">
+    <div class="wrp">
+      <h2>Browser compatibility</h2>
+      <table>
+        <thead>
+          <tr id="tb-top">
+            <th colspan="9"><div id="UA"></div></th>
+          </tr>
+          <tr>
+            <th colspan="9">WEB BROWSERS</th>
+          </tr>
+          <tr>
+            <th colspan="5">IE</th>
+            <th>CR</th>
+            <th>SF</th>
+            <th>FF</th>
+            <th>OP</th>
+          </tr>
+          <tr>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>Ed</th>
+            <th>CR</th>
+            <th>SF</th>
+            <th>FF</th>
+            <th>OP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="9">O</td></tr>
+          <tr><td class="none">X</td><td colspan="8">O</td></tr>
+          <tr><td class="none">X</td><td colspan="8">O</td></tr>
+          <tr><td colspan="9">O</td></tr>
+          <tr><td colspan="9" class="empty">-</td></tr>
+          <tr><td class="none">X</td><td colspan ="4">O</td><td class="none" colspan="4">X (Dropped from DOM3 L3 Events)</td></tr>
+          <tr><td class="none">X</td><td colspan="5" class="buggy">Old Spec</td><td class="none">X</td><td colspan="2">O</td></tr>
+          <tr><td colspan="5" class="none">X</td><td>O</td><td class="none">X</td><td colspan="2">O</td></tr>
+          <tr><td colspan="8">O</td><td class="none">X</td></tr>
+          <tr><td colspan="6">O</td><td class="donno">?</td><td colspan="2">O</td></tr>
+          <tr><td class="none">X</td><td colspan="5">O</td><td class="donno">?</td><td colspan="2">O</td></tr>
+          <tr><td colspan="6">O</td><td class="donno">?</td><td colspan="2">O</td></tr>
+          <tr><td class="buggy">▲</td><td colspan="5">O</td><td class="donno">?</td><td colspan="2">O</td></tr>
+          <tr><td colspan="9" class="empty">-</td></tr>
+          <tr><td colspan="9" class="empty">-</td></tr>
+        </tbody>
+      </table>
+      <h2>Deprecated attributes</h2>
+      <ul>
+        <li>KeyboardEvent.charCode (=> KeyboardEvent.key) </li>
+        <li>KeyboardEvent.keyCode (=> KeyboardEvent.key) </li>
+        <li>KeyboardEvent.which (=> KeyboardEvent.key) </li>
+      </ul>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+  <div class="log2">
+    <div class="wrp">
+      <h2>COMMENT / REFERENCE </h2>
+      <ul>
+        <li>timeStamp (jQuery) : IE8 - Not working, replaced by current time;
+        <li>keyChar :  String.fromCharCode(e.which) (jQuery Evt) || String.fromCharCode(e.which || e.keyCode)</li>
+        <li>Firefox does not trigger any key event during composition [Chinese, Korean, ... ] - It's quite bad to make autocomplete by detecting keyup/keydown event. </li>
+        <li> 1. KEYDOWN (> 2. KEYPRESS >) 3.KEYUP
+        <li> [BEGIN] Keydown > Compositionstart > Compositionupdate > Keyup </li>
+        <li> [ADD PART] ... Keydown > Compositionupdate > Keyup ... </li>
+        <li> [ADD PART TO END]... Compositionupdate > Compositionend > Keydown > Keypress > Keyup </li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent">MDN, Keyboard Event</a></li>
+        <li> <a href="https://www.w3.org/TR/uievents-key/">W3C, UI Events </a> </li>
+        <li> <a href="https://www.w3.org/TR/uievents/">W3C, UI Events KeyboardEvent key Values</a></li>
+        <li> Source: <a href="https://github.com/owebio/inspect-keyboard-composition-events">https://github.com/owebio/inspect-keyboard-composition-events</a>
+      </ul>
+    </div>
+  </div>
+  <div class="log">
+    <div class="wrp">
+      <h2>7. CHANGE </h2>
+      <div>tid <span id="cg-tid">0</span></div>
+      <div>id <span id="cg-id">0</span></div>
+      <div>timeStamp <span id="cg-timeStamp"></span></div>
+      <div><i>timeLapse</i> <span id="cg-timeLapse"></span></div>
+      <div>value <span id="cg-value"></span></div>
+      <div>length <span id="cg-length"></span></div>
+    </div>
+  </div>
+  <div class="log">
+    <div class="wrp">
+    </div>
+  </div>
+  <div style="clear:both"></div>
+</div>
+
+</body>
+</html>
