@@ -1,0 +1,29 @@
+html, body {margin:0;padding:0}
+body {font:12px/24px arial, sans-serif; color:#313131}
+h1 {position:relative;padding:3em 0;margin:0;text-align:center;background:#f3f3f3}
+#desc {line-height:32px;font-weight:normal;font-size:16px;color:#9E9E9E}
+#keyInput {display:block;margin:2.5em auto;width:600px;height:50px;line-height:50px;font-size:36px;padding:0 30px;border:15px solid #7D7D7D}
+.header-logo-invertocat {position:relative;top:8px}
+ul {margin:3em 0}
+.log  {float:left;width:25%;}
+.log2 {float:left;width:50%;}
+.wrp {padding:0 15px;border-right:1px solid #DBDBDB }
+.wrp div {padding:0 0.5em}
+#tb  .wrp {padding:0}
+#tb  h2 {text-align:center}
+.wrp div {border-bottom:1px solid #E3E3E3}
+.wrp div span {float:right}
+table {border-collapse:collapse;width:100%;margin-top:-1px;}
+table th, table td {border:1px solid #EFEFEF;border-bottom:1px solid #E3E3E3;border-top:0;margin:0;padding:0;text-align:center}
+tr {border:0;}
+td {background:#DCECE3;color:#187EAA}
+td.empty {background:#f0f0f0;color:#d0d0d0}
+td.none {background:#FFDCDC;color:#BEBEBE}
+td.buggy {background:#FFDFC0;color:#BEBEBE}
+td.donno {background:#fcfcfc;color:#e0e0e0}
+#tb-top th {border-bottom:0}
+#UA {height:71px;overflow:auto;font-weight:normal;line-height:17px;padding:3px 0 0}
+div.pd {text-align:right}
+div.pp {background:#f3f3f3}
+div.not {color: #BEBEBE}
+div.new {background: #FFFBE3}
